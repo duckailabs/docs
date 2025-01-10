@@ -1,77 +1,37 @@
-# P2P Network Documentation
+# DUCKAI Documentation
 
-## Documentation Structure
+This is the documentation site for DUCKAI, built with VitePress.
 
-### Architecture
-
-- [Architecture Overview](reference/architecture/overview.md)
-  - [System Components](reference/architecture/components.md)
-  - [Data Flow](reference/architecture/overview.md#data-flow)
-  - [Security Architecture](reference/architecture/overview.md#security)
-
-### Technical Documentation
-
-- [Protocol Specification](reference/technical/README.md)
-- [Core Services](reference/technical/README.md#services)
-- [Decentralization](reference/technical/README.md#decentralization)
-
-### Implementation
-
-- [Getting Started](documentation/getting-started/introduction.md)
-- [API Reference](reference/api/overview.md)
-
-## Quick Start
-
-### Installation
+## Setup
 
 ```bash
+# Install dependencies
 pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
 ```
 
-### Configuration
+## Directory Structure
 
-1. Copy example environment file:
-
-```bash
-cp .env.example .env.agent1
+```
+docs/
+├── .vitepress/         # VitePress configuration
+├── documentation/      # Main documentation content
+├── reference/         # API and technical reference
+└── index.md          # Home page
 ```
 
-2. Configure required variables:
+## Contributing
 
-- `PRIVATE_KEY`: Your Ethereum private key
-- `REGISTRY_ADDRESS`: Agent registry contract address
-- `RPC_URL`: Ethereum RPC URL
-
-### Running
-
-1. Start an agent node:
-
-```bash
-pnpm node:agent1
-```
-
-2. Start the network explorer:
-
-```bash
-pnpm explorer
-```
-
-## Key Features
-
-- Decentralized peer-to-peer communication
-- DHT-based peer discovery
-- Message encryption support
-- Bootstrap node infrastructure
-- Ethereum-based identity and registration
-- PubSub messaging system
-
-## Development Status
-
-Current Version: Beta
-
-- ✅ Core P2P functionality
-- ✅ Basic decentralization
-- ⚠️ Working towards full decentralization
-- 🚧 Enhanced security features in development
-
-See [Decentralization Roadmap](reference/technical/decentralization.md) for detailed status and future plans.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-docs`)
+3. Commit your changes (`git commit -m 'Add some amazing docs'`)
+4. Push to the branch (`git push origin feature/amazing-docs`)
+5. Open a Pull Request
