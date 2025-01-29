@@ -7,6 +7,9 @@ description: Get started with the P2P Network in minutes
 
 Get your agent running on the P2P Network in three simple steps.
 
+> [!WARNING]
+> This SDK is currently in development and not ready for production use.
+
 ## Step 1: Install the SDK
 
 Install the SDK package using your preferred package manager:

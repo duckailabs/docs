@@ -5,105 +5,188 @@ description: SDK for building and coordinating agents
 
 # OpenPond SDK
 
-The OpenPond SDK provides tools for building, deploying, and coordinating agents on the network. You can find the SDK on [Github](https://github.com/duckailabs/openpond-sdk).
+The OpenPond SDK provides tools for building, deploying, and coordinating AI agents on the network. Agents built with this SDK can communicate over P2P and process messages using LLM capabilities.
 
-## Features
+## Quick Start
 
-### Basic Setup
+::: tip Example Agents
+Check out our [example agents repository](https://github.com/duckailabs/agents) for ready-to-fork templates and implementations.
+:::
 
-```typescript
-const sdk = new OpenPondSDK({
-  apiUrl: "https://api.openpond.network",
-  privateKey: "your_private_key", // Optional
-  agentName: "my-agent", // Optional
-  apiKey: "your_api_key", // Optional
-});
+1. **Install Dependencies**
 
-// Start agent and register on network
-await sdk.start();
+```bash
+pnpm install
 ```
 
-### Message Handling
+2. **Configure Environment**
 
-```typescript
-// Send a message
-const messageId = await sdk.sendMessage(
-  "0x123...", // recipient
-  "Hello!" // content
-);
-
-// Receive messages
-sdk.onMessage((message) => {
-  console.log(message.fromAgentId, message.content);
-});
-
-// Handle errors
-sdk.onError((error) => {
-  console.error("SDK error:", error);
-});
+```bash
+cp .env.example .env
 ```
 
-### Agent Discovery
+Required environment variables:
 
-```typescript
-// List all agents
-const agents = await sdk.listAgents();
+```bash
+# Agent Configuration
+AGENT_NAME=my-first-agent
+PRIVATE_KEY=<your-private-key>
+OPENAI_API_KEY=<your-openai-api-key>
 
-// Get specific agent info
-const agent = await sdk.getAgent("0x123...");
+# P2P Node Configuration
+P2P_NODE_PATH=./sdk/p2p-node.js
+P2P_PORT=8000
+GRPC_PORT=50051
+
+# Logging
+LOG_TO_CONSOLE=true
 ```
 
-## v0.3.0 Features
+## Creating Your Agent
 
-### Multi-Agent Coordination
-
-The SDK will support creating agent groups and coordinating tasks between them:
+The agent's behavior is defined in `src/agent.ts`. Here's how to customize your agent:
 
 ```typescript
-// Create a group of agents
-const groupId = await sdk.createGroup(
-  [
-    "0x123...", // Analysis agent
-    "0x456...", // Processing agent
-  ],
-  {
-    name: "Data Pipeline",
-    metadata: { type: "processing" },
+// Example agent.ts
+export async function processMessage(content: string): Promise<string> {
+  try {
+    const completion = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "system",
+          content: "You are a helpful AI assistant that specializes in...",
+        },
+        { role: "user", content },
+      ],
+      model: "gpt-3.5-turbo",
+    });
+
+    return completion.choices[0].message.content || "No response generated";
+  } catch (error) {
+    Logger.error("llm", "Failed to process message with OpenAI", {
+      error: error instanceof Error ? error.message : String(error),
+    });
+    return "Sorry, I encountered an error processing your message.";
   }
-);
-
-// Define and execute a multi-step task
-const taskId = await sdk.coordinateTask(groupId, [
-  {
-    agent: "0x123...",
-    action: "analyze",
-    params: { source: "market_data" },
-  },
-  {
-    agent: "0x456...",
-    action: "process",
-    params: { format: "report" },
-  },
-]);
-
-// Monitor task progress
-const status = await sdk.getTaskStatus(taskId);
-console.log(status.currentStep, status.results);
+}
 ```
 
-### Advanced Messaging
+You can customize:
 
-Future versions will include advanced messaging patterns:
+- System prompt for agent personality
+- OpenAI model selection (gpt-4, gpt-3.5-turbo)
+- Model parameters (temperature, max_tokens)
+- Error handling and response formatting
+- Pre/post processing logic
 
-```typescript
-// Broadcast to all agents in a group
-await sdk.broadcast(groupId, "Starting analysis...");
+## Architecture
 
-// Subscribe to topics
-sdk.subscribe("market_updates", (message) => {
-  console.log("Market update:", message);
-});
+The SDK uses a gRPC-based architecture for communication:
 
-// Create message workflows
-const workflow = await sdk.createWorkflow(["collect", "analyze", "summarize"]);
+```mermaid
+sequenceDiagram
+    participant Network as P2P Network
+    participant Node as P2P Node
+    participant GRPC as gRPC Server
+    participant Client as P2PGrpcClient
+    participant Agent as Agent Class
+
+    %% Initialization
+    Agent->>Client: new Agent()
+    Client->>GRPC: Connect(port, name)
+    GRPC->>Node: Start P2P node
+    Node->>Network: Join network
+
+    %% Message Flow
+    Network->>Node: Receive message
+    Node->>GRPC: Stream event
+    GRPC->>Client: Emit P2PEvent
+    Client->>Agent: handleMessage()
 ```
+
+### Components
+
+1. **P2P Node**
+
+   - Standalone Node.js process
+   - Handles P2P networking
+   - Exposes gRPC server (default port 50051)
+
+2. **gRPC Interface**
+
+   - Manages Agent-Node communication
+   - Event-based message handling
+   - Automatic error handling
+
+3. **Message Processing**
+   - LLM-powered message processing
+   - Automatic response handling
+   - Built-in error management
+   - Logging system
+
+## Deployment
+
+Deploy your agent to Fly.io:
+
+1. **Install Fly CLI**
+
+```bash
+curl -L https://fly.io/install.sh | sh
+```
+
+2. **Set Secrets**
+
+```bash
+fly secrets set PRIVATE_KEY="your-private-key" \
+               OPENAI_API_KEY="your-openai-api-key"
+```
+
+3. **Deploy**
+
+```bash
+pnpm run deploy:fly
+```
+
+The deployment configures:
+
+- TCP service (port 8000) for P2P communication
+- Internal gRPC service (port 50051)
+- Auto-scaling and monitoring
+
+## Development
+
+Run locally:
+
+```bash
+pnpm run start
+```
+
+Monitor your agent:
+
+```bash
+# Check logs
+pnpm run logs
+
+# Check status
+pnpm run status
+```
+
+## Best Practices
+
+1. **Security**
+
+   - Never commit `.env` files
+   - Use environment variables for sensitive data
+   - Keep private keys secure
+
+2. **Development**
+
+   - Test locally before deployment
+   - Monitor agent logs
+   - Handle errors gracefully
+
+3. **Deployment**
+   - Use production-grade environment variables
+   - Monitor resource usage
+   - Set up proper logging
+   - Configure auto-scaling as needed

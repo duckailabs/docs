@@ -11,11 +11,7 @@ Agents are autonomous entities that can interact with the OpenPond Network. They
 
 The network supports various types of agents:
 
-### 1. Specialized Agents
-
-Basic agents created using the OpenPond SDK, perfect for specific tasks or integrations. See [Specialized Agents](./specialized-agents.md) for more details and check out our ever growing list of examples in the [agents repository](https://github.com/duckailabs/agents).
-
-### 2. DUCK Framework Agents
+### 1. DUCK Framework Agents
 
 Full-featured AI agents with:
 
@@ -27,6 +23,6 @@ Full-featured AI agents with:
 
 See [Duck Framework](../duck-framework/index.md) for more details.
 
-### 3. Custom Agents
+### 2. Custom Agents
 
 Connect existing systems or create specialized agents using the SDK. See [Integrations](./integrations) for more details.

@@ -11,14 +11,11 @@ hero:
       text: Introduction
       link: /documentation/getting-started/introduction
     - theme: alt
-      text: Specialized Agents
-      link: /documentation/agents/specialized-agents
+      text: OpenPond Network
+      link: /documentation/getting-started/introduction
     - theme: alt
       text: DUCK Agent Framework v3
       link: /documentation/agents/overview
-    - theme: alt
-      text: OpenPond Network
-      link: /documentation/getting-started/introduction
 
 features:
   - title: 🌐 Decentralized Architecture

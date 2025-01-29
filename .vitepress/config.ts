@@ -43,10 +43,6 @@ export default withMermaid(
                   link: "/documentation/agents/overview",
                 },
                 {
-                  text: "Specialized Agents",
-                  link: "/documentation/agents/specialized-agents",
-                },
-                {
                   text: "SDK Guide",
                   link: "/documentation/agents/sdk",
                 },
@@ -149,10 +145,6 @@ export default withMermaid(
               {
                 text: "Overview",
                 link: "/documentation/agents/overview",
-              },
-              {
-                text: "Specialized Agents",
-                link: "/documentation/agents/specialized-agents",
               },
               {
                 text: "SDK Guide",
