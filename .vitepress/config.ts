@@ -4,94 +4,106 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 // https://vitepress.dev/reference/site-config
 export default withMermaid(
   defineConfig({
-    title: "DUCKAI",
-    description: "DUCKAI Documentation",
+    ignoreDeadLinks: true,
+    title: "DuckAI Labs",
+    description: "DuckAI Labs Documentation",
     themeConfig: {
       // https://vitepress.dev/reference/default-theme-config
       nav: [
-        { text: "Home", link: "/" },
         {
-          text: "Protocol",
-          link: "https://protocol.duckai.ai",
-          activeMatch: "/protocol/",
-        },
-        {
-          text: "Documentation",
+          text: "OpenPond Network",
           items: [
             {
               text: "Getting Started",
               items: [
                 {
                   text: "Introduction",
-                  link: "/documentation/getting-started/introduction",
+                  link: "/documentation/openpond-network/getting-started/introduction",
                 },
                 {
                   text: "Quick Start",
-                  link: "/documentation/getting-started/quickstart",
+                  link: "/documentation/openpond-network/getting-started/quickstart",
                 },
                 {
                   text: "Run Node",
-                  link: "/documentation/getting-started/run-node",
+                  link: "/documentation/openpond-network/getting-started/run-node",
                 },
               ],
             },
             {
-              text: "Agents",
+              text: "Architecture",
+              items: [
+                {
+                  text: "Architecture",
+                  link: "/documentation/openpond-network/reference/architecture/overview",
+                },
+                {
+                  text: "Technical Documentation",
+                  link: "/documentation/openpond-network/reference/technical/overview",
+                },
+                {
+                  text: "API Reference",
+                  link: "/documentation/openpond-network/reference/api/overview",
+                },
+              ],
+            },
+            { text: "Contributing", link: "/documentation/contributing" },
+          ],
+        },
+        {
+          text: "DUCKAI Framework",
+          items: [
+            {
+              text: " Agent",
               items: [
                 {
                   text: "Overview",
-                  link: "/documentation/agents/overview",
+                  link: "/documentation/framework/agents/overview",
                 },
                 {
                   text: "SDK Guide",
-                  link: "/documentation/agents/sdk",
+                  link: "/documentation/framework/agents/sdk",
                 },
                 {
                   text: "Framework Integrations",
-                  link: "/documentation/agents/integrations",
+                  link: "/documentation/framework/agents/integrations",
                 },
               ],
             },
             {
-              text: "DUCK Framework",
+              text: "Social Agent",
               items: [
                 {
                   text: "Overview",
-                  link: "/documentation/duck-framework/index",
+                  link: "/documentation/framework/index",
                 },
                 {
                   text: "Character Config",
-                  link: "/documentation/duck-framework/character-config",
+                  link: "/documentation/framework/character-config",
                 },
                 {
                   text: "Response Styles",
-                  link: "/documentation/duck-framework/response-styles",
+                  link: "/documentation/framework/response-styles",
                 },
                 {
                   text: "Platforms",
-                  link: "/documentation/duck-framework/platforms",
+                  link: "/documentation/framework/platforms",
                 },
               ],
             },
-            {
-              text: "Whitepaper",
-              link: "https://whitepaper.duckai.ai",
-            },
           ],
         },
         {
-          text: "Reference",
+          text: "$DUCKAI",
           items: [
-            { text: "Architecture", link: "/reference/architecture/overview" },
             {
-              text: "Technical Documentation",
-              link: "/reference/technical/overview",
+              text: "Introduction",
+              link: "/documentation/duckai_token/introduction",
             },
-            { text: "API Reference", link: "/reference/api/overview" },
           ],
         },
         {
-          text: "Githubs",
+          text: "Github",
           items: [
             { text: "Agents", link: "https://github.com/duckailabs/agents" },
             {
@@ -103,12 +115,15 @@ export default withMermaid(
               link: "https://github.com/duckailabs/protocol",
             },
             {
-              text: "DUCK Framework v2",
+              text: "AI Framework",
               link: "https://github.com/fatduckai/ai",
             },
           ],
         },
-        { text: "Contributing", link: "/documentation/contributing" },
+        {
+          text: "Whitepaper",
+          link: "https://whitepaper.duckai.ai",
+        },
       ],
 
       sidebar: {
@@ -121,112 +136,152 @@ export default withMermaid(
             ],
           },
         ],
-        "/documentation/": [
+        "/documentation/openpond-network/": [
           {
             text: "Getting Started",
             items: [
               {
                 text: "Introduction",
-                link: "/documentation/getting-started/introduction",
+                link: "/documentation/openpond-network/getting-started/introduction",
               },
               {
                 text: "Quick Start",
-                link: "/documentation/getting-started/quickstart",
+                link: "/documentation/openpond-network/getting-started/quickstart",
               },
               {
                 text: "Run Node",
-                link: "/documentation/getting-started/run-node",
+                link: "/documentation/openpond-network/getting-started/run-node",
               },
             ],
-          },
-          {
-            text: "Agents",
-            items: [
-              {
-                text: "Overview",
-                link: "/documentation/agents/overview",
-              },
-              {
-                text: "SDK Guide",
-                link: "/documentation/agents/sdk",
-              },
-              {
-                text: "Framework Integrations",
-                link: "/documentation/agents/integrations",
-              },
-            ],
-          },
-          {
-            text: "DUCK Framework",
-            items: [
-              {
-                text: "Overview",
-                link: "/documentation/duck-framework/index",
-              },
-              {
-                text: "Character Config",
-                link: "/documentation/duck-framework/character-config",
-              },
-              {
-                text: "Response Styles",
-                link: "/documentation/duck-framework/response-styles",
-              },
-              {
-                text: "Platforms",
-                link: "/documentation/duck-framework/platforms",
-              },
-            ],
-          },
-        ],
-        "/reference/": [
-          {
-            text: "Reference Documentation",
-            items: [{ text: "Overview", link: "/reference/" }],
           },
           {
             text: "Architecture",
             items: [
-              { text: "Overview", link: "/reference/architecture/overview" },
-              { text: "Data Flow", link: "/reference/architecture/data-flow" },
+              {
+                text: "Overview",
+                link: "/documentation/openpond-network/reference/architecture/overview",
+              },
+              {
+                text: "Data Flow",
+                link: "/documentation/openpond-network/reference/architecture/data-flow",
+              },
               {
                 text: "Security Model",
-                link: "/reference/architecture/security",
+                link: "/documentation/openpond-network/reference/architecture/security",
               },
               {
                 text: "Components",
-                link: "/reference/architecture/components",
+                link: "/documentation/openpond-network/reference/architecture/components",
               },
             ],
           },
           {
             text: "Technical Documentation",
             items: [
-              { text: "Overview", link: "/reference/technical/overview" },
-              { text: "DHT Implementation", link: "/reference/technical/dht" },
-              { text: "PubSub System", link: "/reference/technical/pubsub" },
+              {
+                text: "Overview",
+                link: "/documentation/openpond-network/reference/technical/overview",
+              },
+              {
+                text: "DHT Implementation",
+                link: "/documentation/openpond-network/reference/technical/dht",
+              },
+              {
+                text: "PubSub System",
+                link: "/documentation/openpond-network/reference/technical/pubsub",
+              },
               {
                 text: "Smart Contracts",
-                link: "/reference/technical/contracts",
+                link: "/documentation/openpond-network/reference/technical/contracts",
               },
-              { text: "Protocol Stack", link: "/reference/technical/protocol" },
+              {
+                text: "Protocol Stack",
+                link: "/documentation/openpond-network/reference/technical/protocol",
+              },
               {
                 text: "Network Configuration",
-                link: "/reference/technical/network",
+                link: "/documentation/openpond-network/reference/technical/network",
               },
               {
                 text: "Messaging System",
-                link: "/reference/technical/messaging",
+                link: "/documentation/openpond-network/reference/technical/messaging",
               },
-              { text: "Services", link: "/reference/technical/services" },
+              {
+                text: "Services",
+                link: "/documentation/openpond-network/reference/technical/services",
+              },
             ],
           },
           {
             text: "API Reference",
             items: [
-              { text: "Overview", link: "/reference/api/overview" },
-              { text: "P2PNetwork Class", link: "/reference/api/p2pnetwork" },
-              { text: "Events", link: "/reference/api/events" },
+              {
+                text: "Overview",
+                link: "/documentation/openpond-network/reference/api/overview",
+              },
+              {
+                text: "P2PNetwork Class",
+                link: "/documentation/openpond-network/reference/api/p2pnetwork",
+              },
+              {
+                text: "Events",
+                link: "/documentation/openpond-network/reference/api/events",
+              },
             ],
+          },
+          {
+            text: "Contributing",
+            link: "/documentation/openpond-network/contributing",
+          },
+          {
+            text: "Protocol",
+            link: "https://protocol.duckai.ai/",
+          },
+        ],
+        "/documentation/framework/": [
+          {
+            text: "OpenPond Framework",
+            items: [
+              {
+                text: "Overview",
+                link: "/documentation/framework/agents/overview",
+              },
+              {
+                text: "SDK Guide",
+                link: "/documentation/framework/agents/sdk",
+              },
+              {
+                text: "Framework Integrations",
+                link: "/documentation/framework/agents/integrations",
+              },
+            ],
+          },
+          {
+            text: "Social Agent Framework",
+            items: [
+              {
+                text: "Overview",
+                link: "/documentation/framework/index",
+              },
+              {
+                text: "Character Config",
+                link: "/documentation/framework/character-config",
+              },
+              {
+                text: "Response Styles",
+                link: "/documentation/framework/response-styles",
+              },
+              {
+                text: "Platforms",
+                link: "/documentation/framework/platforms",
+              },
+            ],
+          },
+        ],
+        "/documentation/duckai_token/": [
+          {
+            text: "Introduction",
+            link: "/documentation/duckai_token/introduction",
           },
         ],
       },

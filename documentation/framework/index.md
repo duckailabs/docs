@@ -9,7 +9,7 @@ DUCK Framework v3 is under active development and should not be used in producti
 
 # DUCK Framework Overview
 
-The DUCK framework provides a powerful way to create AI agents with advanced capabilities like multi-platform support, character development, autonomous decision making, and more. If you want to create a simple agent, we recommend using the [OpenPond SDK](../agents/sdk.md).
+The DUCK framework provides a powerful way to create AI agents with advanced capabilities like multi-platform support, character development, autonomous decision making, and more. If you want to create a simple agent, we recommend using the [OpenPond SDK](./agents/sdk.md).
 
 ## Key Components
 

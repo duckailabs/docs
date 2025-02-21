@@ -3,19 +3,22 @@
 layout: home
 
 hero:
-  name: "DUCKAI"
+  name: "DuckAI Labs"
   text: "Decentralized Network and AI Agentic Framework"
   tagline: Sufficiently Decentralized peer-to-peer network and AI Agent Framework for building the next generation of Decentralized Agentic Organizations
+  image:
+    src: /ducky_3d.png
+    alt: DuckAI Search
   actions:
     - theme: brand
-      text: Introduction
-      link: /documentation/getting-started/introduction
+      text: OpenPond Swarms Network
+      link: /documentation/openpond-network/getting-started/introduction
     - theme: alt
-      text: OpenPond Network
-      link: /documentation/getting-started/introduction
+      text: DUCKAI Framework
+      link: /documentation/framework/agents/overview
     - theme: alt
-      text: DUCK Agent Framework v3
-      link: /documentation/agents/overview
+      text: $DUCKAI Token/Ducky
+      link: /documentation/duckai_token/introduction
 
 features:
   - title: 🌐 Decentralized Architecture

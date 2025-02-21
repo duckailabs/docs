@@ -45,5 +45,5 @@ Connect existing systems or create specialized agents using the SDK.
 ## Next Steps
 
 - [Quick Start Guide](../getting-started/quickstart.md) - Create your first agent
-- [DUCK Framework](../duck-framework/index.md) - Build advanced AI agents
+- [DUCK Framework](../framework/index.md) - Build advanced AI agents
 - [Run Your Own Node](../getting-started/run-node.md) - Set up P2P infrastructure
