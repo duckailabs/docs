@@ -47,58 +47,61 @@ export default withMermaid(
                 },
               ],
             },
-            { text: "Contributing", link: "/documentation/contributing" },
-          ],
-        },
-        {
-          text: "DUCKAI Framework",
-          items: [
             {
-              text: " Agent",
+              text: "DUCKAI Framework",
               items: [
                 {
                   text: "Overview",
-                  link: "/documentation/framework/agents/overview",
+                  link: "/documentation/openpond-network/framework/agents/overview",
                 },
                 {
                   text: "SDK Guide",
-                  link: "/documentation/framework/agents/sdk",
+                  link: "/documentation/openpond-network/framework/agents/sdk",
                 },
                 {
                   text: "Framework Integrations",
-                  link: "/documentation/framework/agents/integrations",
+                  link: "/documentation/openpond-network/framework/agents/integrations",
                 },
-              ],
-            },
-            {
-              text: "Social Agent",
-              items: [
                 {
                   text: "Overview",
-                  link: "/documentation/framework/index",
+                  link: "/documentation/openpond-network/framework/index",
                 },
                 {
                   text: "Character Config",
-                  link: "/documentation/framework/character-config",
+                  link: "/documentation/openpond-network/framework/character-config",
                 },
                 {
                   text: "Response Styles",
-                  link: "/documentation/framework/response-styles",
+                  link: "/documentation/openpond-network/framework/response-styles",
                 },
                 {
                   text: "Platforms",
-                  link: "/documentation/framework/platforms",
+                  link: "/documentation/openpond-network/framework/platforms",
                 },
               ],
             },
+            { text: "Contributing", link: "/documentation/contributing" },
           ],
         },
+
         {
           text: "$DUCKAI",
           items: [
             {
               text: "Introduction",
               link: "/documentation/duckai_token/introduction",
+            },
+            {
+              text: "Season 1",
+              link: "/documentation/duckai_token/season1",
+            },
+            {
+              text: "DUCKAI Labs Chat",
+              link: "/documentation/duckai_token/duckai_chat",
+            },
+            {
+              text: "Tokenomics",
+              link: "/documentation/duckai_token/tokenomics",
             },
           ],
         },
@@ -230,29 +233,19 @@ export default withMermaid(
             ],
           },
           {
-            text: "Contributing",
-            link: "/documentation/openpond-network/contributing",
-          },
-          {
-            text: "Protocol",
-            link: "https://protocol.duckai.ai/",
-          },
-        ],
-        "/documentation/framework/": [
-          {
             text: "OpenPond Framework",
             items: [
               {
                 text: "Overview",
-                link: "/documentation/framework/agents/overview",
+                link: "/documentation/openpond-network/framework/agents/overview",
               },
               {
                 text: "SDK Guide",
-                link: "/documentation/framework/agents/sdk",
+                link: "/documentation/openpond-network/framework/agents/sdk",
               },
               {
                 text: "Framework Integrations",
-                link: "/documentation/framework/agents/integrations",
+                link: "/documentation/openpond-network/framework/agents/integrations",
               },
             ],
           },
@@ -261,27 +254,47 @@ export default withMermaid(
             items: [
               {
                 text: "Overview",
-                link: "/documentation/framework/index",
+                link: "/documentation/openpond-network/framework/index",
               },
               {
                 text: "Character Config",
-                link: "/documentation/framework/character-config",
+                link: "/documentation/openpond-network/framework/character-config",
               },
               {
                 text: "Response Styles",
-                link: "/documentation/framework/response-styles",
+                link: "/documentation/openpond-network/framework/response-styles",
               },
               {
                 text: "Platforms",
-                link: "/documentation/framework/platforms",
+                link: "/documentation/openpond-network/framework/platforms",
               },
             ],
+          },
+          {
+            text: "Contributing",
+            link: "/documentation/openpond-network/contributing",
+          },
+          {
+            text: "Protocol",
+            link: "https://protocol.duckai.ai/",
           },
         ],
         "/documentation/duckai_token/": [
           {
             text: "Introduction",
             link: "/documentation/duckai_token/introduction",
+          },
+          {
+            text: "Season 1",
+            link: "/documentation/duckai_token/season1",
+          },
+          {
+            text: "DUCKAI Labs Chat",
+            link: "/documentation/duckai_token/duckai_chat",
+          },
+          {
+            text: "Tokenomics",
+            link: "/documentation/duckai_token/tokenomics",
           },
         ],
       },
