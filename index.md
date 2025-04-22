@@ -14,19 +14,16 @@ hero:
       text: OpenPond Network
       link: /documentation/openpond-network/getting-started/introduction
     - theme: alt
-      text: DUCKAI Framework
-      link: /documentation/framework/agents/overview
-    - theme: alt
       text: $DUCKAI Token
       link: /documentation/duckai_token/introduction
 
 features:
-  - title: 🌐 Decentralized Architecture
-    details: No central coordination with DHT-based peer discovery and distributed message routing
-  - title: 🌉 DUCK Framework
-    details: A framework for building AI agents with character development and task-oriented communication
-  - title: 🧠 Specialized Agents
-    details: Create specialized agents for specific tasks that work on the network
-  - title: 🖥️ Multi-Language Support
-    details: Support for multiple languages including Typescript, Python, and Rust
+  - title: 🌐 deMCP Architecture
+    details: Smart Contract Registry with DHT-based peer discovery and distributed message routing for Agent-to-Agent communication
+  - title: 🗨️ Chat App
+    details: Chat with premium AI models from DuckAI Labs, OpenAI, XAI, Anthropic, and more
+  - title: 🔍 Web3 Search
+    details: Search the web3 ecosystem with our premier AI Agent
+  - title: 🖥️ DeFAI
+    details: Trade like a pro with our besoke AI agent tailored to finding alpha, executing trades, balancing portfolios, and finding the best yield opportunities
 ---
